@@ -1,0 +1,7 @@
+
+patch:
+  "switches/@0/reset": 1 
+  "schema/name": "五筆·簡繁"
+  "switches/@3/reset": 0
+  "punctuator/import_preset": symbols
+  "recognizer/patterns/punct": "^/[a-z]*$"
