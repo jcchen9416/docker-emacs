@@ -11,13 +11,9 @@ ARG APT_MIRROR=
 RUN /bin/bash -c 'if [[ -n "$APT_MIRROR" ]]; then sed -i 's#http://archive.ubuntu.com#$APT_MIRROR#g' /etc/apt/sources.list; fi'
 
 
-# timezone
-ENV TZ=Asia/Shanghai
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
 
 # utf-8 ; zh_CN
-RUN apt-get update && apt-get -y install locales
+RUN apt-get update && apt-get -y install locales tzdata
 RUN locale-gen en_US.UTF-8 &&\
   DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
 ENV LANG="en_US.UTF-8"
@@ -30,6 +26,13 @@ RUN apt-get install -y language-pack-zh-hans \
 RUN mkdir /usr/share/fonts/win
 ADD fonts/ /usr/share/fonts/win/
 RUN cd /root && mkfontscale && mkfontdir && fc-cache -fv
+
+
+# timezone
+ENV TZ=Asia/Shanghai
+RUN rm /etc/localtime
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN dpkg-reconfigure -f noninteractive tzdata
 
 
 # software
