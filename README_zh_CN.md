@@ -36,3 +36,8 @@ Windows
          -v "<path_to_your_.emacs.d>:/root/.emacs.d" \
          jcchen/emacs:latest emacs
 
+
+How to build
+============
+
+    docker build -t jcchen/emacs --build-arg APT_MIRROR=http://mirrors.163.com .
