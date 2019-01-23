@@ -55,7 +55,7 @@ ARG HOME=/root
 # rime
 ADD rime/ $HOME/.config/fcitx/rime
 ADD fcitx/profile $HOME/.config/fcitx/profile
-ADD fcitx/config/fcitx-clipboard.config $HOME/.config/fcitx/config/fcitx-clipboard.config
+ADD fcitx/conf/fcitx-clipboard.config $HOME/.config/fcitx/conf/fcitx-clipboard.config
 
 
 # clean
