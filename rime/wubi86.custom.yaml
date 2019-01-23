@@ -1,5 +1,5 @@
 
 patch:
-  # "switches/@0/reset": 1
+  "switches/@3/reset": 1
   "punctuator/import_preset": symbols
   "recognizer/patterns/punct": "^/([0-9]+[a-z]*|[a-z]+)$"
